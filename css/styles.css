@@ -1,22 +1,113 @@
+/* === Общий фон с переливом === */
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  color: white;
+  background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #ff0055);
+  background-size: 400% 400%;
+  animation: gradientMove 10s ease infinite;
+}
+
+/* === Навигация === */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 80px;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+/* === Логотип === */
 .logo {
-  color: rgb(0, 47, 255);
-  width: 150px;
-  height: auto;
-  display: flex;
+  font-size: 28px;
+  font-weight: 800;
+  color: #fff;
   text-decoration: none;
+  letter-spacing: 1px;
 }
+
 .logo span {
-  color: rgb(255, 213, 0);
+  color: #ff0055;
 }
+
+/* === Ссылки навигации === */
 .nav-links {
-  display: flex;
-  gap: 100px;
   list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
 }
-.nav-links li a {
+
+.nav-links a {
+  color: white;
   text-decoration: none;
-  color: rgb(73, 107, 255);
-  font-weight: bold;
-  width: 1000px;
-  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* === Эффект подсветки при наведении === */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #ff0055, #00ffff);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+  transform-origin: right;
+}
+
+.nav-links a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.nav-links a:hover {
+  color: #00ffff;
+}
+
+/* === Красивая анимация фона === */
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* === Адаптация под телефон === */
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+}
+.menu-icon {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  justify-content: space-between;
+  font-size: 10px;
+  margin-right: 500px;
+  margin-left: -80px;
 }
