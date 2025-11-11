@@ -1,0 +1,22 @@
+.logo {
+  color: rgb(0, 47, 255);
+  width: 150px;
+  height: auto;
+  display: flex;
+  text-decoration: none;
+}
+.logo span {
+  color: rgb(255, 213, 0);
+}
+.nav-links {
+  display: flex;
+  gap: 100px;
+  list-style: none;
+}
+.nav-links li a {
+  text-decoration: none;
+  color: rgb(73, 107, 255);
+  font-weight: bold;
+  width: 1000px;
+  font-size: 15px;
+}
